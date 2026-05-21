@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20 жылдық кездесу</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0a0c12;
+    font-family:'Inter',sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND */
+
+.parallax-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+.parallax-layer{
+    position:absolute;
+    width:100%;
+    height:110%;
+    background-size:cover;
+    background-position:center;
+}
+
+.layer-1{
+    background-image:url('https://images.pexels.com/photos/509922/pexels-photo-509922.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    opacity:0.5;
+}
+
+.layer-2{
+    background-image:url('https://images.pexels.com/photos/2385479/pexels-photo-2385479.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    opacity:0.35;
+    mix-blend-mode:overlay;
+}
+
+.layer-3{
+    background-image:url('https://images.pexels.com/photos/698854/pexels-photo-698854.jpeg?auto=compress&cs=tinysrgb&w=1600');
+    opacity:0.2;
+}
+
+.overlay-gradient{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at center,
+    rgba(10,12,18,0.4) 0%,
+    rgba(3,5,12,0.9) 90%);
+    z-index:-1;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1280px;
+    margin:auto;
+    padding:2rem 1rem 4rem;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.badge{
+    background:rgba(212,175,55,0.15);
+    border:1px solid rgba(212,175,55,0.4);
+    padding:0.5rem 1.2rem;
+    border-radius:60px;
+    color:#e4c580;
+    margin-bottom:2rem;
+    letter-spacing:2px;
+    backdrop-filter:blur(8px);
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(3rem,8vw,6rem);
+    background:linear-gradient(135deg,#fff,#e4c580);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:1rem;
+}
+
+.subhead{
+    max-width:700px;
+    background:rgba(0,0,0,0.45);
+    border:1px solid rgba(212,175,55,0.2);
+    padding:1rem 2rem;
+    border-radius:40px;
+    line-height:1.7;
+    backdrop-filter:blur(10px);
+}
+
+/* VIDEO */
+
+.class-photo-wrapper{
+    display:flex;
+    justify-content:center;
+    margin:2.5rem auto;
+}
+
+.class-photo{
+    width:min(90vw,600px);
+    border-radius:30px;
+    border:3px solid rgba(212,175,55,0.45);
+    box-shadow:
+    0 25px 60px rgba(0,0,0,0.6),
+    0 0 40px rgba(212,175,55,0.15);
+}
+
+/* TIMER */
+
+.countdown-wrapper{
+    margin:3rem 0 2rem;
+    background:rgba(10,12,18,0.55);
+    border-radius:60px;
+    padding:1rem 2rem;
+    display:flex;
+    gap:2rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    border:1px solid rgba(212,175,55,0.3);
+    backdrop-filter:blur(16px);
+}
+
+.time-card{
+    text-align:center;
+}
+
+.time-number{
+    font-size:clamp(2rem,6vw,4rem);
+    font-weight:700;
+    background:linear-gradient(145deg,#fff,#e4c580);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.time-label{
+    margin-top:5px;
+    letter-spacing:3px;
+    color:#c0b280;
+    font-size:0.8rem;
+}
+
+/* CARDS */
+
+.details-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2rem;
+    margin:4rem 0;
+}
+
+.glass-card{
+    flex:1;
+    min-width:260px;
+    text-align:center;
+    background:rgba(15,18,28,0.6);
+    border-radius:35px;
+    padding:2rem;
+    border:1px solid rgba(212,175,55,0.2);
+    backdrop-filter:blur(12px);
+}
+
+.calendar-icon{
+    font-size:2rem;
+    color:#e4c580;
+    margin-bottom:1rem;
+}
+
+.event-date-big{
+    font-size:2.3rem;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.highlight-date{
+    margin-top:1rem;
+    background:rgba(212,175,55,0.2);
+    display:inline-block;
+    padding:0.4rem 1rem;
+    border-radius:50px;
+    color:#ecc669;
+}
+
+.location-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:#e4c580;
+    margin-top:1rem;
+    padding:0.8rem 1.4rem;
+    border-radius:50px;
+    border:1px solid rgba(212,175,55,0.4);
+    background:rgba(0,0,0,0.4);
+}
+
+/* WISH */
+
+.wish-section{
+    max-width:900px;
+    margin:3rem auto;
+    text-align:center;
+}
+
+.wish-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.5rem;
+    margin-bottom:1rem;
+    color:#f5d79c;
+}
+
+.wish-text{
+    line-height:1.9;
+    font-size:1.1rem;
+}
+
+/* PROGRAM */
+
+.program-section{
+    margin-top:3rem;
+    line-height:2;
+    font-size:1.1rem;
+}
+
+/* FOOTER */
+
+.footer-message{
+    text-align:center;
+    margin-top:4rem;
+    padding:2rem;
+    font-size:1.5rem;
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    border:none;
+    background:rgba(0,0,0,0.6);
+    color:#e4c580;
+    font-size:1.2rem;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+.fade-up.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="parallax-bg">
+    <div class="parallax-layer layer-1" id="layer1"></div>
+    <div class="parallax-layer layer-2" id="layer2"></div>
+    <div class="parallax-layer layer-3" id="layer3"></div>
+</div>
+
+<div class="overlay-gradient"></div>
+
+<div class="container">
+
+<div class="hero fade-up">
+
+<div class="badge">
+20 JYL • ARNAULY KESH
+</div>
+
+<h1>
+Мектеп түлектерінің<br>
+20 жылдық кездесуі
+</h1>
+
+<div class="subhead">
+Құрметті түлектер!<br>
+Сіздерді 20 жылдық кездесу кешіне шақырамыз.
+</div>
+
+<!-- VIDEO -->
+
+<div class="class-photo-wrapper fade-up">
+
+<video class="class-photo"
+autoplay
+muted
+loop
+playsinline
+controls>
+
+<source src="видео (1).mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+<!-- TIMER -->
+
+<div class="countdown-wrapper">
+
+<div class="time-card">
+<div class="time-number" id="days">00</div>
+<div class="time-label">КҮН</div>
+</div>
+
+<div class="time-card">
+<div class="time-number" id="hours">00</div>
+<div class="time-label">САҒАТ</div>
+</div>
+
+<div class="time-card">
+<div class="time-number" id="minutes">00</div>
+<div class="time-label">МИНУТ</div>
+</div>
+
+<div class="time-card">
+<div class="time-number" id="seconds">00</div>
+<div class="time-label">СЕКУНД</div>
+</div>
+
+</div>
+</div>
+
+<!-- DETAILS -->
+
+<div class="details-grid">
+
+<div class="glass-card fade-up">
+
+<div class="calendar-icon">
+<i class="fas fa-calendar-alt"></i>
+</div>
+
+<div style="margin-top:0.5rem;">
+25.05.26 ж
+</div>
+
+<div style="margin-top:0.5rem;">
+БЕЙСЕНБІ • 19:00
+</div>
+
+<div class="highlight-date">
+КЕЗДЕСУ КҮНІ
+</div>
+
+</div>
+
+<div class="glass-card fade-up">
+
+<i class="fas fa-map-marker-alt"
+style="font-size:2rem;color:#e4c580;margin-bottom:1rem;"></i>
+
+<h3 style="margin-bottom:0.5rem;color:#e4c580;">
+Өтетін орны
+</h3>
+
+<p>
+Тараз қаласы,<br>
+Улица Ташкентская, 142
+</p>
+
+<a href="https://2gis.kz/taraz/geo/70030076202893464"
+target="_blank"
+class="location-link">
+
+<i class="fas fa-location-dot"></i>
+Картада ашу
+
+</a>
+
+</div>
+</div>
+
+<!-- WISH -->
+
+<div class="glass-card wish-section fade-up">
+
+<div style="font-size:2.2rem;color:#e4c580;margin-bottom:1rem;">
+<i class="fas fa-heart"></i>
+</div>
+
+<div class="wish-title">
+20 жылдыққа тілек
+</div>
+
+<div class="wish-text">
+Уақыт өтсе де, мектеп қабырғасындағы балалық шақ,
+достық пен естеліктер әрдайым жүрегімізде сақталады.
+Осы кездесуде бәріміз қайта қауышып,
+өткен күндерді бірге еске алып,
+қуанышты сәттерге толы әсерлі кеш өткізейік!
+</div>
+
+<div style="margin-top:1.5rem;color:#e4c580;">
+«Бір сынып — бір отбасы»
+</div>
+
+</div>
+
+<!-- PROGRAM -->
+
+<div class="glass-card wish-section fade-up">
+
+<div style="font-size:2.2rem;color:#e4c580;margin-bottom:1rem;">
+<i class="fas fa-star"></i>
+</div>
+
+<div class="wish-title">
+20 жылдық кездесу бағдарламасы
+</div>
+
+<div class="wish-text" style="line-height:2;">
+
+Құрметті сыныптастар!<br><br>
+
+Сіздерді мектебіміздің 20 жылдық кездесу кешіне арналған
+арнайы бағдарламаға шақырамыз.<br><br>
+
+📅 <b>25 мамыр күні</b><br>
+🕘 Сағат 09:00-де — мектепке жиналу<br><br>
+
+📅 <b>25 мамыр күні</b><br>
+🕌 Сағат 13:00-де — мешітке жиналу<br>
+Құдайы тамақ беріледі.<br><br>
+
+Баршаңызды қуанышпен күтеміз!<br>
+Бірге бас қосып, естеліктермен бөлісіп,
+әсерлі кеш өткізейік.<br><br>
+
+<b>Жігіттер мен қыздар — бәріміз бір сынып, бір отбасы!</b><br><br>
+
+✨ «Бірлікте — береке бар!» ✨
+
+</div>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+<i class="fas fa-music"></i>
+</button>
+
+<script>
+
+/* TIMER */
+
+function updateCountdown(){
+
+const targetDate = new Date(2026,4,28,19,0,0);
+const now = new Date();
+const diff = targetDate - now;
+
+if(diff <= 0) return;
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+const seconds = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById('days').innerHTML = days;
+document.getElementById('hours').innerHTML = hours;
+document.getElementById('minutes').innerHTML = minutes;
+document.getElementById('seconds').innerHTML = seconds;
+
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+/* PARALLAX */
+
+window.addEventListener('scroll',()=>{
+
+const scrollY = window.scrollY;
+
+document.getElementById('layer1').style.transform =
+`translateY(${scrollY*0.03}px)`;
+
+document.getElementById('layer2').style.transform =
+`translateY(${scrollY*0.06}px)`;
+
+document.getElementById('layer3').style.transform =
+`translateY(${scrollY*0.1}px)`;
+
+});
+
+/* FADE */
+
+const fadeElements = document.querySelectorAll('.fade-up');
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+});
+
+fadeElements.forEach(el=>observer.observe(el));
+
+/* MUSIC */
+
+const music = document.getElementById('bgMusic');
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+}else{
+music.pause();
+}
+
+}
+
+window.addEventListener('click',()=>{
+music.play().catch(()=>{});
+},{once:true});
+
+</script>
+
+</body>
+</html>
